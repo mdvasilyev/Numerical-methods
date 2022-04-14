@@ -1,0 +1,7 @@
+Task #3
+
+Approximate function using trigonometric polynomial and Chebyshev polynomials
+
+f(x) = A_1 cos(\omega_1 x) + A_2 sin(\omega_2 x)
+
+More formulas one can find in the report
