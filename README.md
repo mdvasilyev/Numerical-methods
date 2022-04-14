@@ -1,2 +1,5 @@
 # Simple_programming
- Zalipaev's labs
+
+Basic programming tasks for 'physicists'
+
+ITMO University, Russia 
