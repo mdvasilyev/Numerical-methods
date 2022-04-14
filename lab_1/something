@@ -1,1 +1,5 @@
-adaomdw
+Task #1
+
+Solve SLE with the Gauss method. Produce LU matrix decomposition (Crout).
+
+Ax = f, A = [[2,1,3],[11,7,5],[9,8,4]], f = [[10],[2],[6]]
