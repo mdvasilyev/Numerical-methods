@@ -1,1 +1,7 @@
-defa
+Task #2
+
+Solve SLE using iterative mathods: Jacobi, Seidel, and SOR
+
+Ax = f, A = [[10,3,0],[3,15,1],[0,1,7]], f = [[2],[12],[5]]
+
+with relative 
