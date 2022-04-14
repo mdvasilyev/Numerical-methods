@@ -1,3 +1,5 @@
+Language: python
+
 Basic programming tasks for 'physicists'
 
 ITMO University, Russia 
