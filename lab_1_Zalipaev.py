@@ -11,7 +11,9 @@ n = int(size[0])
 U = np.zeros((n,n))
 x = np.zeros((n,1))
 y = np.zeros((n,1))
-f =(np.array([[2,3,-3,2]])).reshape(n,1)
+
+f =(np.array([[2,3,-3,2]])).reshape(n,1) # constant vector
+
 U2 = np.hstack([U,y])
 A1 = np.hstack([A,f])
 L1 = np.zeros((n,n))
