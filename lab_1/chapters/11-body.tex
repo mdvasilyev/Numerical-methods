@@ -1,0 +1,121 @@
+\justifying
+\textbf{Цель работы:}
+Научиться решать системы линейный алгебраических уравнений методом последовательны исключений Гаусса. Научиться производить $LU$ разложение матрицы системы.
+
+\textbf{Задание:}
+Решить систему линейных алгебраических уравнений методом последовательных исключений Гаусса.
+\begin{equation}\label{task}
+    Ax = f,\quad A = 
+    \begin{pmatrix}
+    2 & 1 & 3 \\
+    11 & 7 & 5 \\
+    9 & 8 & 4
+    \end{pmatrix}, \quad
+    f = 
+    \begin{pmatrix}
+    10 \\
+    2 \\
+    6
+    \end{pmatrix}.
+\end{equation}
+
+Получить $LU$ разложение матрицы системы.
+
+\textbf{Ход работы:}
+
+Выполним алгоритм Гаусса для нахождения неизвестных.
+\begin{enumerate}
+    \item Проверим, что определитель матрицы $A$ не равен нулю:
+    \begin{equation}
+        \det A \neq 0.
+    \end{equation}
+    \item Воспользуемся общим алгоритмом, переводящим матрицу $A$ в матрицу $U$:
+    \begin{equation}
+        A \longrightarrow U \Longleftrightarrow 
+        \begin{pmatrix}
+        a_{11} & a_{12} & \dotsb & a_{1n} \\
+        a_{21} & a_{22} & \dotsb & a_{2n} \\
+        \dotsb & \dotsb & \dotsb & \dotsb \\
+        a_{n1} & a_{n2} & \dotsb & a_{nn} \\
+        \end{pmatrix}
+        \longrightarrow
+        \begin{pmatrix}
+        1 & u_{12} & \dotsb & u_{1n} \\
+        0 & 1 & \dotsb & u_{2n} \\
+        \dotsb & \dotsb & \dotsb & \dotsb \\
+        0 & 0 & \dotsb & 1 \\
+        \end{pmatrix}.
+    \end{equation}
+    Получившаяся матрица $U$ называется верхнетреугольной.
+    \item Уравнение $Ax = f$ перешло в уравнение $Ux = y$. Причем, коэффициенты $u_{kj}$ и $y_k$ вычисляются по следующим формулам:
+    \begin{equation}
+        u_{kj} = \frac{a_{kj}^{(k-1)}}{a_{kk}^{(k-1)}}, \quad 
+        y_{k} = \frac{f_{k}^{(k-1)}}{a_{kk}^{(k-1)}}
+    \end{equation}
+    \begin{equation}
+        a_{ij}^{(k)} = a_{ij}^{(k-1)} - a_{ik}^{(k-1)}u_{kj}, \quad i,j = k+1, \dotsb, n
+    \end{equation}
+    \begin{equation}
+        f_{i}^{(k)} = f_{i}^{(k-1)} - a_{ik}^{(k-1)}y_{k}, \quad i,j = k+1, \dotsb, n
+    \end{equation}
+    \begin{equation}
+        f_1^{(0)} = f_1, \quad a_{1j}^{(0)} = a_{1j}, \quad j = 1, 2, \dotsb, n
+    \end{equation}
+    \item Неизвестные $x_i$ найдем с помощью обратных подставновок по формуле:
+    \begin{equation}
+        x_i = y_i - \sum_{j = i + 1}^{n} u_{ij}x_j, \quad 1 \leq i \leq n-1.
+    \end{equation}
+\end{enumerate}
+
+Выполним $LU$ разложение матрицы системы.
+\begin{enumerate}
+    \item Сделав Гауссов спуск, мы из системы уравнений $Ax = f$ получили $Ux = y$. Рассматривая соотношения между $y$ и $f$, получаем, что $f = Ly$. Причем $L$ вычисляется по формулам:
+    \begin{equation}
+        l_{ij} = 
+        \begin{cases}
+            a_{ij}^{(j-1)}, & i \geq j, \\
+            0, & i < j.
+        \end{cases}
+    \end{equation}
+    \item Так как $Ax = f$, $Ux = y$ и $Ly = f$, получаем
+    \begin{equation}
+        Ax = Ly = LUx.
+    \end{equation}
+    Следовательно, $A = LU$.
+\end{enumerate}
+
+\textbf{Результаты:}
+
+Программа, использующая описанные выше формулы и написанная на Python, выдает следующие результаты:
+\begin{equation}
+    x = \begin{pmatrix}
+    -3.38461538 \\
+    2.11538462 \\
+    4.88461538
+    \end{pmatrix},
+\end{equation}
+\begin{equation}
+    L = \begin{pmatrix}
+    2 & 0 & 0 \\
+    11 & 1.5 & 0 \\
+    9 & 3.5 & 17.33333333
+    \end{pmatrix}, \quad
+    \begin{pmatrix}
+    1 & 0.5 & 1.5 \\
+    0 & 1 & -7.66666667 \\
+    0 & 0 & 1
+    \end{pmatrix}.
+\end{equation}
+При перемножении $L$ и $U$ получаем следующую матрицу:
+\begin{equation}
+    \begin{pmatrix}
+    2 & 1 & 3 \\
+    11 & 7 & 5 \\
+    9 & 8 & 4
+\end{pmatrix},
+\end{equation}
+которая в точности совпадает с исходной матрицей $A$.
+
+\textbf{Выводы:}
+
+В настоящей работе была решена решена система линейных алгебраических уравнений~(\ref{task}) с помощью метода последовательных исключений Гаусса. Также было получено $LU$ разложение матрицы системы. Лабораторная работа была выполнена на языке Python.
