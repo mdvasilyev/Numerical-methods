@@ -1,0 +1,7 @@
+Task #6
+
+Find the minimum of target function:
+
+f(x, y) = 1 / 2 A x ** 2 + B x y + 1 / 2 C y ** 2 - D x - E y + F
+
+in the region: x ** 2 + y ** 2 <= R. Use analytical method, gradient descent, and Newton's method.
