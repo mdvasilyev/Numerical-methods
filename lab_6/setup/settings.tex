@@ -1,0 +1,182 @@
+%%% Область упрощённого управления оформлением %%%
+
+%% Управление зазором между подрисуночной подписью и основным текстом %%
+\setlength{\belowcaptionskip}{10pt plus 20pt minus 2pt}
+
+%% Подпись таблиц %%
+
+% смещение строк подписи после первой
+\newcommand{\tabindent}{0cm}
+
+% тип форматирования таблицы
+% plain --- название и текст в одной строке
+% split --- название и текст в разных строках
+\newcommand{\tabformat}{plain}
+
+%%% настройки форматирования таблицы `plain'
+
+% выравнивание по центру подписи, состоящей из одной строки
+% true  --- выравнивать
+% false --- не выравнивать
+\newcommand{\tabsinglecenter}{false}
+
+% выравнивание подписи таблиц
+% justified   --- выравнивать как обычный текст
+% centering   --- выравнивать по центру
+% centerlast  --- выравнивать по центру только последнюю строку
+% centerfirst --- выравнивать по центру только первую строку
+% raggedleft  --- выравнивать по правому краю
+% raggedright --- выравнивать по левому краю
+\newcommand{\tabjust}{justified}
+
+% Разделитель записи «Таблица #» и названия таблицы
+\newcommand{\tablabelsep}{~\cyrdash\ }
+
+%%% настройки форматирования таблицы `split'
+
+% положение названия таблицы
+% \centering   --- выравнивать по центру
+% \raggedleft  --- выравнивать по правому краю
+% \raggedright --- выравнивать по левому краю
+\newcommand{\splitformatlabel}{\raggedleft}
+
+% положение текста подписи
+% \centering   --- выравнивать по центру
+% \raggedleft  --- выравнивать по правому краю
+% \raggedright --- выравнивать по левому краю
+\newcommand{\splitformattext}{\raggedright}
+
+%% Подпись рисунков %%
+%Разделитель записи «Рисунок #» и названия рисунка
+\newcommand{\figlabelsep}{~\cyrdash\ }  % (ГОСТ 2.105, 4.3.1)
+                                        % "--- здесь не работает
+
+\AtBeginDocument{
+	\setlength{\parindent}{2.5em}                   % Абзацный отступ. Должен быть одинаковым по всему тексту и равен пяти знакам (ГОСТ Р 7.0.11-2011, 5.3.7).
+}
+
+%%% Таблицы %%%
+\DeclareCaptionLabelSeparator{tabsep}{\tablabelsep} % нумерация таблиц
+\DeclareCaptionFormat{split}{\splitformatlabel#1\par\splitformattext#3}
+
+\captionsetup[table]{
+	format=\tabformat,                % формат подписи (plain|hang)
+	font=normal,                      % нормальные размер, цвет, стиль шрифта
+	skip=.0pt,                        % отбивка под подписью
+	parskip=.0pt,                     % отбивка между параграфами подписи
+	position=above,                   % положение подписи
+	justification=\tabjust,           % центровка
+	indent=\tabindent,                % смещение строк после первой
+	labelsep=tabsep,                  % разделитель
+	singlelinecheck=\tabsinglecenter, % не выравнивать по центру, если умещается в одну строку
+}
+
+%%% Рисунки %%%
+\DeclareCaptionLabelSeparator{figsep}{\figlabelsep} % нумерация рисунков
+
+\captionsetup[figure]{
+	format=plain,                     % формат подписи (plain|hang)
+	font=normal,                      % нормальные размер, цвет, стиль шрифта
+	skip=14pt,                        % отбивка под подписью
+	parskip=.0pt,                     % отбивка между параграфами подписи
+	position=below,                   % положение подписи
+	singlelinecheck=true,             % выравнивание по центру, если умещается в одну строку
+	justification=centerlast,         % центровка
+	labelsep=figsep,	              % разделитель
+	name={Рисунок}
+}
+
+\captionsetup[subfigure]{
+	skip=14pt,
+	position=bottom,
+	labelformat=parens
+}
+
+%%% Подписи подрисунков %%%
+\DeclareCaptionSubType{figure}
+\renewcommand{\thesubfigure}{\asbuk{subfigure}} % нумерация подрисунков
+\DeclareCaptionFont{norm}{\fontsize{14pt}{16pt}\selectfont}
+\renewcommand{\thefigure}{\arabic{figure}}
+
+\captionsetup[subfloat]{
+	labelfont=norm,                 % нормальный размер подписей подрисунков
+	textfont=norm,                  % нормальный размер подписей подрисунков
+	labelsep=space,                 % разделитель
+	labelformat=brace,              % одна скобка справа от номера
+	justification=centering,        % центровка
+	singlelinecheck=true,           % выравнивание по центру, если умещается в одну строку
+	skip=.0pt,                      % отбивка над подписью
+	parskip=.0pt,                   % отбивка между параграфами подписи
+	position=below,                 % положение подписи
+}
+
+%%% Списки %%%
+% Используем короткое тире (endash) для ненумерованных списков (ГОСТ 2.105-95, пункт 4.1.7, требует дефиса, но так лучше смотрится)
+\renewcommand{\labelitemi}{\normalfont\bfseries{--}}
+
+%%% Макет страницы %%%
+\geometry{top=20mm, bottom=20mm, right=10mm, left=25mm, footskip=0mm, nomarginpar, bindingoffset=0cm}%total={257mm, 175mm}, showframe
+\setlength{\topskip}{0pt}   %размер дополнительного верхнего поля
+
+%%% Интервалы %%%
+%% Реализация средствами класса (на основе setspace) ближе к типографской классике.
+%% И правит сразу и в таблицах (если со звёздочкой)
+%\DoubleSpacing*     % Двойной интервал
+\OnehalfSpacing    % Полуторный интервал
+%\SingleSpacing      % Одинарный интервал
+%\setSpacing{1.42}   % Полуторный интервал, подобный Ворду (возможно, стоит включать вместе с предыдущей строкой)
+
+%%% Выравнивание и переносы %%%
+%% http://tex.stackexchange.com/questions/241343/what-is-the-meaning-of-fussy-sloppy-emergencystretch-tolerance-hbadness
+%% http://www.latex-community.org/forum/viewtopic.php?p=70342#p70342
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em % В случае проблем регулировать в первую очередь
+\hfuzz 0.3pt
+\vfuzz \hfuzz
+%\raggedbottom
+%\sloppy                 % Избавляемся от переполнений
+\clubpenalty=10000      % Запрещаем разрыв страницы после первой строки абзаца
+\widowpenalty=10000     % Запрещаем разрыв страницы после последней строки абзаца
+
+%%% Колонтитулы %%%
+\makepagestyle{plain}
+\makeevenhead{plain}{}{}{}
+\makeoddhead{plain}{}{}{}
+\makeevenfoot{plain}{}{\begin{vplace} \thepage \end{vplace}}{}
+\makeoddfoot{plain}{}{\begin{vplace} \thepage \end{vplace}}{}
+\pagestyle{plain}
+
+%%% Размеры заголовков %%%
+\setsecheadstyle{\normalfont\large\bfseries}
+%\renewcommand*{\chaptitlefont}{\normalfont\Large\bfseries}
+
+%%% Подписи %%%
+\setfloatadjustment{table}{%
+	\setlength{\abovecaptionskip}{0pt}   % Отбивка над подписью
+	\setlength{\belowcaptionskip}{0pt}   % Отбивка под подписью
+}
+
+%%% Отступы у плавающих блоков %%%
+\setlength\textfloatsep{1ex}
+
+%%% Нумерация subsection %%%
+\setsecnumdepth{subsection} 			% Включить нумерацию subsection
+\maxsecnumdepth{subsection}				% Добавление subsection в оглавление (по идее)
+\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}} % Стиль отображения номера subsection
+%\renewcommand{\thesubsubsection}{} 	% Стиль отображения номера subsubsection
+\setcounter{tocdepth}{3}				% Добавление subsubsection в оглавление (работает)
+
+%%% Убираем слово "Глава" из главы и насраиваем размер, выравнивание и тд. %%%
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+	\vspace*{50 pt}%
+	{\setlength{\parindent}{0pt} \centering \normalfont \bfseries \large
+		\ifnum \value{secnumdepth}>1 
+		\if@mainmatter\thechapter.\ \fi%
+		\fi
+		#1\par\nobreak\vspace{40 pt}}}
+\makeatother
+
+%%% Директории %%%
+\graphicspath{{fig/}}
