@@ -61,8 +61,8 @@ while np.linalg.norm(x - xiterative)/np.linalg.norm(x) >= e:
 xJacobi = xiterative
 
 print('Relative error in the Jacobi method:',np.linalg.norm(x - xiterative)/np.linalg.norm(x))
-print('The number of iterations in the Jacobi method:',countJacobi)
-print('The solution obtained by the Jacobi method: '+'\n', xJacobi, '\n')
+print('Number of iterations in the Jacobi method:',countJacobi)
+print('Solution obtained by the Jacobi method: '+'\n', xJacobi, '\n')
 
 # Seidel method
 xiterative = (np.array([[1,1,1]])).reshape(n,1) # solution initial approximation
@@ -74,8 +74,8 @@ while np.linalg.norm(x - xiterative)/np.linalg.norm(x) >= e:
 xZeidel = xiterative
 
 print('Relative error in the Seidel method:',np.linalg.norm(x - xiterative)/np.linalg.norm(x))
-print('The number of iterations in the Seidel method:',countZeidel)
-print('The solution obtained by the Seidel method: '+'\n', xZeidel, '\n')
+print('Number of iterations in the Seidel method:',countZeidel)
+print('Solution obtained by the Seidel method: '+'\n', xZeidel, '\n')
 
 # SOR method
 xiterative = (np.array([[1,1,1]])).reshape(n,1) # solution initial approximation
@@ -89,5 +89,5 @@ xSOR = xiterative
 
 print('Parameter \u03C9 =',w)
 print('Relative error in the SOR method:',np.linalg.norm(x - xiterative)/np.linalg.norm(x))
-print('The number of iterations in the SOR method:',countSOR)
-print('The solution obtained by the SOR method: '+'\n', xSOR)
+print('Number of iterations in the SOR method:',countSOR)
+print('Solution obtained by the SOR method: '+'\n', xSOR)
