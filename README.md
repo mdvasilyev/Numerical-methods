@@ -4,9 +4,11 @@ Basic programming tasks for 'physicists'
 
 ITMO University, Russia 
 
-List:
+List of task:
 
 1) SLE solution with the Gauss method, Crout matrix decomposition;
 2) SLE solution using iterative methods: Jacobi, Seidel, and SOR;
 3) Function approximation with trigonometric and Chebyshev polynimals;
-4) 
+4) Eigen values and eigen vectors problem solution with Newton's method;
+5) a bit later;
+6) Mathematical optimization (find the minimum of target function defined in the region)
