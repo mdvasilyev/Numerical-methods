@@ -1,0 +1,7 @@
+Task #4
+
+Find eigen values and eigen vectors of the matrix:
+
+A = [[16,3,2],[3,5,1],[2,1,10]]
+
+applying Newton's method
