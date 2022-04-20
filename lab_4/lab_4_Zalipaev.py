@@ -2,6 +2,7 @@ import numpy as np
 import sympy as smp
 from sympy import *
 
+# here we find eigen values
 A = Matrix([[8,3,2],[3,6,1],[2,1,7]])
 n = np.shape(A)[0]
 l = smp.symbols('l')
@@ -13,10 +14,13 @@ I = np.identity(n)
 y = np.ones((n, 1))
 number_of_iterations = 10
 
+# concatenate initial guess and eigen value into one vector 
 def y_of_l(number_of_l):
     return np.vstack((y, l_array[number_of_l]))
 
-def newton_eigenvalues(y_iterative):
+# find eigen vectors with Newton's method
+## P.S. this also works if eigen values are not known but replaced with initial guess as well as eigen vectors
+def newton_eigenval_and_vec_problem(y_iterative):
     for k in range(number_of_iterations):
         x = y_iterative[0:n]
         l = y_iterative[n]
@@ -29,11 +33,11 @@ eival_array = np.zeros_like(l_array)
 eivec_array = np.zeros((n,n))
 
 for i in range(len(l_array)):
-    eival_array[i] = newton_eigenvalues(y_of_l(i))[n][0]
+    eival_array[i] = newton_eigenval_and_vec_problem(y_of_l(i))[n][0]
 
 for i in range(n):
     for j in range(n):
-        eivec_array[i][j] = newton_eigenvalues(y_of_l(i))[j][0]
+        eivec_array[i][j] = newton_eigenval_and_vec_problem(y_of_l(i))[j][0]
 eivec_array = np.transpose(eivec_array)
 
 print("Newton's method applied:")
