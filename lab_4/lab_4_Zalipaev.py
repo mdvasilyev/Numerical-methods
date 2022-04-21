@@ -65,12 +65,10 @@ for i in range(n):
     mutated_D[i] = mutated_D[i] - l_array[i] * np.identity(n)
 A1 = np.array(np.triu(A), dtype=float)
 for i in range(n):
-    for j in range(n):
-        A1[i, i] = 0
+    A1[i, i] = 0
 A2 = np.array(np.tril(A), dtype=float)
 for i in range(n):
-    for j in range(n):
-        A2[i, i] = 0
+    A2[i, i] = 0
 
 # Jacobi method
 count_Jacobi = 0
