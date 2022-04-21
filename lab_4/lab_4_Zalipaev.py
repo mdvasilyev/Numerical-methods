@@ -56,7 +56,6 @@ l_array = np.array(np.abs(solve(det(A - l * np.identity(n)), l)), dtype=float)
 number_of_digits = 4
 l_array = l_array.round(decimals=number_of_digits)
 e = 0.001
-count_simple_iter = 0
 
 # decompose A into A1, A2 and D
 D = np.array(np.diag(np.diag(A)), dtype=float)
