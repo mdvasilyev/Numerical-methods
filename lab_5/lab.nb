@@ -1,5 +1,24 @@
-In[127]:= messyData=Import["C:\\Users\\79511\\OneDrive\\Документы\\GitHub\\Labs_Zalipaev\\lab_5\\epsdata.txt"];
+In[193]:= ClearAll["Global`*"]
+In[194]:= messyData=Import["C:\\Users\\79511\\OneDrive\\Документы\\GitHub\\Labs_Zalipaev\\lab_5\\epsdata.txt"];
 lessMessyData=ToExpression@StringReplace[StringSplit[messyData],"e"->"*10^"];
 data=Table[{lessMessyData[[i]],lessMessyData[[i+1]]},{i,1,Length[lessMessyData]-1,2}];
-ListLinePlot[data,PlotRange->All]
-Out[130]= 
+tmin=data[[1,1]];
+tmax=data[[-1,1]];
+ListLinePlot[data,PlotRange->All,AxesLabel->{"t","Subscript[E, tr]"}]
+Out[199]= 
+(*f[t_]:=Exp[-t^2/(4 Subscript[\[Tau], p]^2)-I Subscript[\[Omega], 0] t]
+F[\[Omega]_]:=Integrate[Exp[I \[Omega] t] f[t],{t,-Infinity,Infinity}][[1]]*)
+In[212]:= F[\[Omega]_,\[Tau]_,\[Omega]0_]:=2Sqrt[Pi] \[Tau] Exp[-(\[Omega]-\[Omega]0)^2 \[Tau]^2]
+Plot[F[\[Omega],1,2],{\[Omega],-1,5}]
+Out[213]= 
+FindFit
+In[224]:= Interpolation[data]
+Out[224]= InterpolatingFunction[Domain: {{4.,24.}}
+Output: scalar
+
+]
+z=10^-3;(*detector position*)
+c=3*10^8;(*speed of light*)
+freq=3*10^11;(*THz frequency*)
+factor=z/c*3*10^11
+Out[237]= 1
