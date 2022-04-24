@@ -1,0 +1,5 @@
+In[127]:= messyData=Import["C:\\Users\\79511\\OneDrive\\Документы\\GitHub\\Labs_Zalipaev\\lab_5\\epsdata.txt"];
+lessMessyData=ToExpression@StringReplace[StringSplit[messyData],"e"->"*10^"];
+data=Table[{lessMessyData[[i]],lessMessyData[[i+1]]},{i,1,Length[lessMessyData]-1,2}];
+ListLinePlot[data,PlotRange->All]
+Out[130]= 
