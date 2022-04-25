@@ -19,12 +19,12 @@ number_of_digits = 4
 xMin_value = solution[x].subs([(a, 1),(b, 0.1),(c, 3),(d, 2),(e, 4),(f, 0.5)]).evalf(number_of_digits)
 yMin_value = solution[y].subs([(a, 1),(b, 0.1),(c, 3),(d, 2),(e, 4),(f, 0.5)]).evalf(number_of_digits)
 
-print('Substituting numbers: a, b, c, d, e, f = 1, 0.1, 3, 2, 4, 0.5, we get the minimal point [' + str(xMin_value) + ',' + str(yMin_value) + '].', '\n')
+print('Substituting numbers: a, b, c, d, e, f = 1, 0.1, 3, 2, 4, 0.5, we get the minimal point A[' + str(xMin_value) + ',' + str(yMin_value) + '].', '\n')
 
 # gradient descent
 a, b, c, d, e, f = 1, 0.1, 3, 2, 4, 0.5
 cur_p = np.array([1, 1], dtype=float) # the algorithm starts at point = [1, 1]
-rate = 0.01 # learning rate
+rate = 0.25 # learning rate
 precision = 0.0001 # this tells us when to stop the algorithm
 previous_step_size = 1
 max_iters = 10000 # maximum number of iterations
@@ -42,7 +42,7 @@ while previous_step_size > precision and iters < max_iters:
 
 cur_p = np.array(cur_p, float)
 
-print('Gradient descent with precision =', str(precision) + ', learning rate =', str(rate) + ', and initial guess =', str([1, 1]), 'converges to ' + str(cur_p.round(decimals=3)), 'in', str(iters), 'iterations.\n')
+print('Gradient descent with precision =', str(precision) + ', learning rate =', str(rate) + ', and initial guess =', str([1, 1]), 'converges to A' + str(cur_p.round(decimals=3)), 'in', str(iters), 'iterations.\n')
 
 # Newton method
 cur_p = np.array([1, 1], dtype=float) # the algorithm starts at point = [1, 1]
