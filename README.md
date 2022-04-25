@@ -10,5 +10,5 @@ List of task:
 2) SLE solution using iterative methods: Jacobi, Seidel, and SOR;
 3) Function approximation with trigonometric and Chebyshev polynimals;
 4) Eigen values and eigen vectors problem solution with Newton's method;
-5) a bit later;
+5) Вetermination of dielectric permittivity according to the scattering data of a plane electromagnetic wave;
 6) Mathematical optimization (find the minimum of target function defined in the region)
