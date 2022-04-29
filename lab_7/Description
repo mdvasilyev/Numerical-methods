@@ -1,0 +1,12 @@
+Task #7
+
+Calculate double integral
+
+I = S (A x ^ 2 + B y ^ 2 + C) dx dy over the region x ^ 2 + y ^ 2 <= 1, A > 0, B > 0, C > 0,
+
+using 2 Monte Carlo methods. First method is based on mean value theorem.
+The second one uses the representation of the double integral as the volume of a vertical cylinder bounded from above by the surface
+
+z = f(x, y) = A x ^ 2 + B y ^ 2 + C.
+
+Compare results.
