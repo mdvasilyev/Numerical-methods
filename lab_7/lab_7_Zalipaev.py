@@ -1,7 +1,6 @@
-import numpy as np
 from numpy import linspace
 from random import randint
-from scipy.integrate import dblquad, nquad
+from scipy.integrate import nquad
 from math import sqrt
 
 A = 4
