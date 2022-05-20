@@ -3,11 +3,11 @@ from random import randint
 from scipy.integrate import nquad
 from math import sqrt
 
-A = 4
-B = 2
-C = 3
+A = 6
+B = 8
+C = 7
 R = 1
-N = 100000
+N = 1000000
 dotsNumber = 1000
 
 xDots = linspace(-R, R, dotsNumber)
