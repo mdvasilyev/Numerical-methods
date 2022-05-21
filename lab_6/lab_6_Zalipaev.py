@@ -15,14 +15,15 @@ print('Analytical solution:')
 print('Minimal x is equal to', str(solution[x]))
 print('Minimal y is equal to', str(solution[y]))
 
+
 number_of_digits = 4
-xMin_value = solution[x].subs([(a, 4),(b, 2),(c, 8),(d, 4),(e, 5),(f, 6)]).evalf(number_of_digits)
-yMin_value = solution[y].subs([(a, 4),(b, 2),(c, 8),(d, 4),(e, 5),(f, 6)]).evalf(number_of_digits)
+xMin_value = solution[x].subs([(a, 1),(b, 0.1),(c, 3),(d, 2),(e, 4),(f, 0.5)]).evalf(number_of_digits)
+yMin_value = solution[y].subs([(a, 1),(b, 0.1),(c, 3),(d, 2),(e, 4),(f, 0.5)]).evalf(number_of_digits)
 
 print('Substituting numbers: a, b, c, d, e, f = 1, 0.1, 3, 2, 4, 0.5, we get the minimal point A[' + str(xMin_value) + ',' + str(yMin_value) + '].', '\n')
 
 # gradient descent
-a, b, c, d, e, f = 4, 2, 8, 4, 5, 6
+a, b, c, d, e, f = 1, 0.1, 3, 2, 4, 0.5
 cur_p = np.array([1, 1], dtype=float) # the algorithm starts at point = [1, 1]
 rate = 0.25 # learning rate
 precision = 0.0001 # this tells us when to stop the algorithm
