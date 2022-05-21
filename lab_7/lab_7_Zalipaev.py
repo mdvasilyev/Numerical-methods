@@ -3,8 +3,8 @@ from random import randint
 from scipy.integrate import nquad
 from math import sqrt
 
-A = 6
-B = 8
+A = 5
+B = 6
 C = 7
 R = 1
 N = 1000000
