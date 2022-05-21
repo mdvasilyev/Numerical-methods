@@ -1,0 +1,19 @@
+%\usepackage{biblatex}
+
+%%% Реализация библиографии встроенными средствами посредством движка bibtex8 %%%
+
+%%% Пакеты %%%
+\usepackage{cite}                                   % Красивые ссылки на литературу
+
+
+%%% Стили %%%
+\bibliographystyle{BibTeX-Styles/utf8gost71u}    % Оформляем библиографию по ГОСТ 7.1 (ГОСТ Р 7.0.11-2011, 5.6.7)
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.}   % Заменяем библиографию с квадратных скобок на точку
+\makeatother
+
+
+
+%\bibliographystyle{unsrt}
+

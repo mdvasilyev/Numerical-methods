@@ -1,0 +1,65 @@
+\usepackage{comment}    % Позволяет убирать блоки текста (добавляет окружение comment и команду \excludecomment)
+
+%%% Поля и разметка страницы %%%
+%\usepackage{pdflscape}  % Для включения альбомных страниц
+\usepackage{geometry}   % Для последующего задания полей
+
+%%% Математические пакеты %%%
+\usepackage{amsthm,amsmath,amscd}   % Математические дополнения от AMS
+\usepackage{amsfonts,amssymb}       % Математические дополнения от AMS
+\usepackage{mathtools}              % Добавляет окружение multlined
+%\usepackage{xfrac}                  % Красивые дроби
+
+\usepackage{ragged2e} % Для выравнивания
+\usepackage{blindtext}% текста
+
+%%%% Установки для размера шрифта 14 pt %%%%
+%% Формирование переменных и констант для сравнения (один раз для всех подключаемых файлов)%%
+%% должно располагаться до вызова пакета fontspec или polyglossia, потому что они сбивают его работу
+\newlength{\curtextsize}
+\newlength{\bigtextsize}
+\setlength{\bigtextsize}{13.9pt}
+
+\usepackage{cmap}   % Улучшенный поиск русских слов в полученном pdf-файле
+
+\usepackage[T1,T2A]{fontenc}			% Поддержка русских букв
+%\usepackage{pscyr}						% Подключение pscyr (не работает в overleaf)
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+%%% Таблицы %%%
+\usepackage{longtable,ltcaption} % Длинные таблицы
+\usepackage{multirow,makecell}   % Улучшенное форматирование таблиц
+\usepackage{tabu, tabulary}      % таблицы с автоматически подбирающейся шириной столбцов (tabu обязательно до hyperref вызывать)
+\usepackage{threeparttable}      % автоматический подгон ширины подписи таблицы
+
+%%% Общее форматирование
+\usepackage{soulutf8}% Поддержка переносоустойчивых подчёркиваний и зачёркиваний
+\usepackage{icomma}  % Запятая в десятичных дробях
+
+%% Векторная графика
+\usepackage{tikz}                   % Продвинутый пакет векторной графики
+
+%%% Гиперссылки %%%
+\usepackage{hyperref}
+
+%%% Изображения %%%
+\usepackage{graphicx}				% Подключаем пакет работы с графикой
+\usepackage{caption}                % Подписи рисунков и таблиц
+\usepackage{subcaption}             % Подписи подрисунков и подтаблиц
+
+%%% Счётчики %%%
+\usepackage[figure,table]{totalcount}   % Счётчик рисунков и таблиц
+\usepackage{totcount}   			% Пакет создания счётчиков на основе последнего номера подсчитываемого элемента (может требовать дважды компилировать документ)
+\usepackage{totpages}   			% Счётчик страниц, совместимый с hyperref (ссылается на номер последней страницы). Желательно ставить последним пакетом в преамбуле
+
+%%% Списки %%%
+\usepackage{enumitem}
+
+
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{indentfirst} 			%Красная строка после абзаца
+\usepackage{subfiles}  				%Подфайлы с редактированиями и пакетами как в основном
+\usepackage{tabularx}
+\usepackage{fancyhdr}
