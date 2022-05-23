@@ -14,4 +14,3 @@ List of task:
 6) Mathematical optimization (find the minimum of target function defined in the region);
 7) Calculating double integrals using Monte Carlo method;
 8) Cauchy problem solution using 4th order Runge-Kutta and Adams–Bashforth methods.
-9) 
