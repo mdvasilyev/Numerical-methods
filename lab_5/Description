@@ -1,7 +1,9 @@
 Task #5
 
 Find dielectric permittivity of layer using electromagnetic plane wave scattering data.
-Electromagnetic parameters are ε = ε_1 + ie_2, μ = 1. 
-
-
-Let a plane electromagnetic wave propagate through a horizontal homogeneous dielectric layer from a dispersing medium with electrodynamic parameters along the z axis from bottom to top. Let the electric component of the field be directed along the y axis. It is assumed that there is a vacuum above and below the layer. Let the time signal E_tr(t, z) of the transmitted wave at the observation point with the coordinate z>0 be given. Solve the inverse problem of defining a function. To do this, use the Newton iterative sequence to restore the refractive index function n, and hence, that is, solve the inverse problem of restoring the parameters of the dielectric layer.
+Electromagnetic parameters are ε = ε_1 + iε_2, μ = 1.
+Let a plane electromagnetic wave propagate through a horizontal homogeneous dielectric layer from a dispersing medium 
+with electrodynamic parameters along the z axis from bottom to top. Let the electric component of the field be directed along the y axis.
+It is assumed that there is a vacuum above and below the layer. Let the time signal E_tr(t, z) of the transmitted wave at the observation
+point with the coordinate z > 0 be given. Solve the inverse problem of defining a function ε(ω). To do this, use the Newton iterative sequence
+to restore the refractive index function n(ω), and hence, ε(ω) = n^2(ω) that is, solve the inverse problem of restoring the parameters of the dielectric layer.
