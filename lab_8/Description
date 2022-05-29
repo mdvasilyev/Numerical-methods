@@ -1,0 +1,13 @@
+Task #8
+
+Solve initial value problem for first order ODE.
+
+Examine numerical solutions of initial value problem for the first order ODE using fourth oderder Runge-Kutta and Adams-Bashforth-Moulton methods.
+
+Examine absolute and relative computation errors for the following problems:
+
+y' = y, y(0) = 0, x in [0, 5]
+
+and
+
+y' = -y, y(0) = 1, x in [0, 5]
